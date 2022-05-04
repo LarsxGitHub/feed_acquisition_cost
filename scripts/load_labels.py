@@ -23,10 +23,10 @@ def collapse_weights(weights_per_asn, ctype):
     for asn, weights in weights_per_asn.items():
         minw, maxw = min(weights), max(weights)
         if ctype == 0:
-            collapsed[asn] = minw
+            collapsed[asn] = minw/3.0
 
         if ctype == 1:
-            collapsed[asn] = maxw
+            collapsed[asn] = maxw/3.0
 
         if ctype == 2:
             if minw == -3:
