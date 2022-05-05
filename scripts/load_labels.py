@@ -5,12 +5,12 @@ import numpy as np
 DATA_DIR = '../data/'
 
 # min, avg, max
-WEIGHT_RENS = [1, 2, 2]
-WEIGHT_ISOLARIO = [0, 2, 3]
+WEIGHT_RENS = [1, 7/4, 2]
+WEIGHT_ISOLARIO = [0, 7/4, 3]
 WEIGHT_STATE_OWNED = [-2, -1, 0]
-WEIGHT_POC = [-2, 1, 3]
+WEIGHT_POC = [-2, 3/4, 3]
 WEIGHT_PERSONALUSE = [0, 2, 3]
-WEIGHT_COMMPROJ = [0, 1, 2]
+WEIGHT_COMMPROJ = [0, 3/4, 2]
 
 # gov harder (-1) compared to education
 # security companies harder (-1) compared to cloud provider
