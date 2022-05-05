@@ -44,7 +44,7 @@ def pairwise(iterable):
     a = iter(iterable)
     return set(zip(a, a))
 
-def boostrap_naics_weights():
+def boostrap_naics_weights(which):
     # quick and dirty, don't judge me ...
     sys.path.append(DATA_DIR+'asdb/')
     from naics_weights import NAICS_WEIGHTS
@@ -70,7 +70,7 @@ def boostrap_naics_weights():
 
                 label = f'{cat} -> {sub}'
                 if not label in NAICS_WEIGHTS: continue
-                weights_per_asn[ASN].append(NAICS_WEIGHTS.get(label, 0))
+                weights_per_asn[ASN].append(NAICS_WEIGHTS.get(label, [0, 0, 0])[which])
 
     return weights_per_asn
 
@@ -142,7 +142,7 @@ def show_weight_distribution(weights_per_asn):
 def produce_run(which, ctype):
     wnames = ['min', 'avg', 'max']
     cnames = ['min', 'max', 'merge']
-    weights_per_asn = boostrap_naics_weights()
+    weights_per_asn = boostrap_naics_weights(which)
 
     add_state_owned_weights(weights_per_asn, which)
     #add_positive_openess_weights(weights_per_asn)
